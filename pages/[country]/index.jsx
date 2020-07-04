@@ -1,8 +1,31 @@
-const CountryTest = (props) => {
+import axios from 'axios';
+
+const Home = ({shows}) => {
+
+    const renderShows = () => {
+        return shows.map((show) => {
+            return (
+                <li key={show.id}>{show.name}</li>
+            )
+        })
+    }
 
     return (
-        <h1>This is a country test</h1>
+        <ul className="tvshows">
+            {renderShows()}
+        </ul>
     )
 }
 
-export default CountryTest;
+Home.getInitialProps = async (context) => {
+
+    const country = context.query.country || 'us';
+
+    const res = await axios.get(`http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`);
+    const response = await res.data;
+    return {
+        shows : response
+    }
+}
+
+export default Home;
