@@ -2,6 +2,7 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 import Cast from '../../components/Cast/index';
 import Header from '../../components/Header/index';
+import Error from 'next/error';
 
 const ShowDetails = ({show}) => {
 
