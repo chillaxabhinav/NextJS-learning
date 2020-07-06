@@ -1,12 +1,15 @@
 import axios from 'axios';
+import Thumbnail from '../../components/Thumbnail/index';
 
 const Home = ({shows}) => {
 
     const renderShows = () => {
         return shows.map((show) => {
-            return (
-                <li key={show.id}>{show.name}</li>
-            )
+            if(show.image !== null){
+                return (
+                    <li key={show.id}><Thumbnail imageUrl={show.image.medium} caption={show.name} /></li>
+                )
+            }
         })
     }
 
