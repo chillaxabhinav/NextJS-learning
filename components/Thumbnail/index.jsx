@@ -1,20 +1,18 @@
 import React from 'react';
+import ThumbnailStyles from './styles';
+import Link from 'next/link';
 
-const Thumbnail = ({imageUrl, caption}) => {
+const Thumbnail = ({imageUrl, caption, href = '', as = ''}) => {
     return (
         <div className="thumbnail">
-            <img src={imageUrl} className="thumbnail__image"/>
-            <h4 className="thumbnail__caption">{caption}</h4>
+        <Link href={href} as={as}>
+            <a>
+                <img src={imageUrl} className="thumbnail__image" />
+                <h4 className="thumbnail__caption">{caption}</h4>
+            </a>
+        </Link>
 
-            <style jsx>{`
-                .thumbnail__image {
-                    width : 100%;
-                }
-
-                .thumbnail__caption {
-                    text-align : center;
-                }
-            `}</style>
+            <style jsx>{ThumbnailStyles}</style>
         </div>
     )
 }
