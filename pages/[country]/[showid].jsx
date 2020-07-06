@@ -1,8 +1,9 @@
 import axios from 'axios';
+import parse from 'html-react-parser';
 
 const ShowDetails = ({show}) => {
 
-    const {name, image} = show;
+    const {name, image, summary} = show;
 
     return (
         <div className="show-details">
@@ -10,6 +11,7 @@ const ShowDetails = ({show}) => {
 
             </div>
             <h1>Title</h1>
+            {parse(summary)}
 
             <style jsx>{
                 `
