@@ -9,12 +9,12 @@ export default function Home() {
   )
 }
 
-Home.getInitialProps = (context) => {
-	const country = context.query.country || 'us';
+// Home.getInitialProps = (context) => {
+// 	const country = context.query.country || 'us';
 
-	process.browser ?
-		Router.replace('/[country]',`${country}`) :
-		context.res.writeHead(302, {location : `${country}`});
+// 	process.browser ?
+// 		Router.replace('/[country]',`${country}`) :
+// 		context.res.writeHead(302, {location : `${country}`});
 
-	context.res.end();
-}
+// 	context.res.end();
+// }
